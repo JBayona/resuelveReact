@@ -18,6 +18,12 @@
   font-size: large;
 }
 
+.icon-style{
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: #00d1b2;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

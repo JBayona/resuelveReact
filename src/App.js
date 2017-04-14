@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ConceptTable from './components/ConceptTable';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      concepts: CONCEPTS
+    };
+  }
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+          <h3>Resuelve Test</h3>
+          <ConceptTable concepts = {this.state.concepts} />
       </div>
     );
   }
 }
 
 export default App;
+
+var CONCEPTS = [
+  {description: 'Control Xbox', quantity: 1, num: 1, price: 999, total: 0},
+  {description: 'Tabcin', quantity: 1, num: 12, price: 44, total: 0},
+];
