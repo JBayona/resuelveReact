@@ -2,14 +2,17 @@ import React from 'react';
 import ConceptRow from './ConceptRow';
 
 class ConceptTable extends React.Component{
-
+	constructor(props){
+		super(props);
+	}
 	render(){
 		const { concepts } = this.props;
 		const Concepts = concepts.map(
-			(concept, index) => <ConceptRow key={index} {...concept}/>
+			(concept, index) => <ConceptRow key={index} {...concept} type = {index} 
+			onAddingQuantity = {this.props.onAddingQuantity.bind(this)}/>
 		);
 		return(
-			<table>
+			<table className = "tableGrid">
 				<thead>
 					<tr>
 						<th>Descripción</th>
