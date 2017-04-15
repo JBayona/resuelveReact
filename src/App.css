@@ -51,7 +51,60 @@ table tbody tr:hover{
   background-color: #F2F2F2;
 }
 
+.noPadding{
+  padding: 5  px !important;
+}
 
+input{ 
+  height:25px; 
+  display:inline-block;
+  position:relative;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+input:focus { 
+    outline: none !important;
+    border:1px solid #00d1b2;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:   #719ECE;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #719ECE;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #719ECE;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:   #719ECE;
+}
+
+.divFlex{
+  display: flex;
+  width: 80%;
+}
+
+.buttonContainer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end
+
+}
+
+.buttonAdd{
+  border-radius: 5px;
+  height: 30px;
+  background-color: #fff;
+  color: #00d1b2;
+  font-size: medium;
+  border-color: #00d1b2;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

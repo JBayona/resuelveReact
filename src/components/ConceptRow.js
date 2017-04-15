@@ -15,14 +15,21 @@ class ConceptRow extends React.Component{
 	handleDeleteConcept(e){
 		this.props.onDeleteConcept(this.props.type);
 	}
+	handleInputChange(event) {
+		var item = {}
+	    const target = event.target;
+	    const value = target.value;
+	    const name = target.name;
+	    this.props.onUpdateAddConcept(name, value);
+  	}
 	render(){
 		const type = this.props.type; //index - ID
 		const rowType = this.props.rowType;
 		var row = null;
 		if(rowType === 'concept'){
-			let {description, quantity, num, price} = this.props;
+			let {description, quantity, num, price, total} = this.props;
 			price = price.toFixed(2);
-			let total = (quantity * price).toFixed(2);
+			total = total.toFixed(2);
 			row = <tr className = {type % 2 == 0 && "zebra"}>
 					<td>{description}</td>
 					<td>{quantity}</td>
@@ -38,8 +45,9 @@ class ConceptRow extends React.Component{
 						   href="javascript:void(0);"><MdDelete className = "icon-style"/></a>
 					</td>
 				 </tr> 
-		}else{
-			let {title} = this.props;
+		}else if(rowType === 'stats'){
+			let {title, amount} = this.props;
+			amount = amount ? amount.toFixed(2) : amount;
 			let trClasses = classNames({
 				"zebra": type % 2 == 0,
 				"top-border" : title == 'Subtotal',
@@ -50,9 +58,38 @@ class ConceptRow extends React.Component{
 					<td></td>
 					<td></td>
 					<td>{title}</td>
-					<td>$10000</td>
+					<td>$ {amount}</td>
 					<td>
 					</td>
+				</tr>
+		}else{
+			row = <tr className = {type % 2 == 0 && "zebra"}>
+					<td className="noPadding">
+						<input type="text" 
+							   name="concept" 
+							   placeholder="Concepto"
+							   onChange={this.handleInputChange.bind(this)}/>
+					</td>
+					<td className="noPadding">
+						<input type="text" 
+							   name="quantity" 
+							   placeholder="Cantidad"
+							   onChange={this.handleInputChange.bind(this)}/>
+					</td>
+					<td className="noPadding">
+						<input type="text" 
+						   	   name="num" 
+						   	   placeholder="Unidades"
+						   	   onChange={this.handleInputChange.bind(this)}/>
+					</td>
+					<td className="noPadding">
+						<input type="text" 
+							   name="price" 
+							   placeholder="Precio Unitario"
+							   onChange={this.handleInputChange.bind(this)}/>
+						</td>
+					<td className="noPadding"></td>
+					<td className="noPadding"></td>
 				</tr>
 		}
 		return(
