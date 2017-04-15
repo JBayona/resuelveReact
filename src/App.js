@@ -11,13 +11,37 @@ class App extends Component {
     };
   }
   handleAddQuantity(id){
-    //this.state.
+    let tmp = this.state.concepts[id];
+    tmp.quantity++;
+    let tmpArray = this.state.concepts;
+    tmpArray[id] = tmp;
+    this.setState({
+        concepts : tmpArray
+    });
+  }
+  handleRemoveQuantity(id){
+    let tmp = this.state.concepts[id];
+    tmp.quantity--;
+    let tmpArray = this.state.concepts;
+    tmpArray[id] = tmp;
+    this.setState({
+        concepts : tmpArray
+    });
+  }
+  handleDeleteConcept(id){
+    this.state.concepts.splice(id,1);
+    this.setState({
+      concepts: this.state.concepts
+    });
   }
   render() {
     return (
       <div>
           <h3>Resuelve Test</h3>
-          <ConceptTable concepts = {this.state.concepts}  onAddingQuantity = {this.handleAddQuantity.bind(this)}/>
+          <ConceptTable concepts = {this.state.concepts}  
+                        onAddQuantity = {this.handleAddQuantity.bind(this)}
+                        onRemoveQuantity = {this.handleRemoveQuantity.bind(this)}
+                        onDeleteConcept = {this.handleDeleteConcept.bind(this)}/>
       </div>
     );
   }
