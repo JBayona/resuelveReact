@@ -3,6 +3,7 @@ import ConceptRow from './ConceptRow';
 //import StatsRow from './StatsRow';
 
 class ConceptTable extends React.Component{
+	//The key in this Component is that we add a new style depending the section in the table
 	render(){
 		const title = ['Subtotal', 'IVA (16%)', 'Total'];
 		const { concepts, subtotal, iva, total, concept, quantity, num, price } = this.props;

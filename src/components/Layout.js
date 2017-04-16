@@ -4,7 +4,7 @@ class Layout extends React.Component{
 	render(){
 		return(
 			<div>
-				<h1>Hi</h1>
+				<h2>Resuelve Test</h2>
 			</div>
 		);
 	}

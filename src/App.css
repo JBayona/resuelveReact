@@ -36,7 +36,7 @@
 }
 
 table tbody tr:hover{
-  background-color: #ffa;
+  background-color: #D2E2F9;
 }
 
 .top-border{
@@ -97,13 +97,23 @@ input:focus {
 
 }
 
-.buttonAdd{
+.greenButton{
   border-radius: 5px;
   height: 30px;
   background-color: #fff;
   color: #00d1b2;
   font-size: medium;
   border-color: #00d1b2;
+}
+
+.margin-btn{
+  margin: 15px;
+}
+
+.reset-div{
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {
