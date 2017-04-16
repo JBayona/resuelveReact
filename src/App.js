@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Router} from 'react-router';
 
 import ConceptTable from './components/ConceptTable';
 import AddConcept from './components/AddConcept.js';
